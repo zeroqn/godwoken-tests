@@ -426,8 +426,8 @@ jobs:
         run: |
           inputs=${{ steps.generate_integration_test_inputs.outputs.result }}
           inputs="${inputs//'%'/'%25'}"
-          inputs="${inputs//$'\n'/'%0A'}"
-          inputs="${inputs//$'\r'/'%0D'}"
+          inputs="${inputs//'\n'/'%0A'}"
+          inputs="${inputs//'\r'/'%0D'}"
           echo "::set-output name=result::$inputs"
 
   run-integration-test:

@@ -428,7 +428,7 @@ jobs:
           inputs="${inputs//'%'/'%25'}"
           inputs="${inputs//$'\n'/'%0A'}"
           inputs="${inputs//$'\r'/'%0D'}"
-          echo "::set-output name=content::$inputs"
+          echo "::set-output name=result::$inputs"
 
   run-integration-test:
     needs: component-info

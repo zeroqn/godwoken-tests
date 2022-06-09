@@ -1,0 +1,16 @@
+name: Run Integration Test v1
+
+on:
+  workflow_dispatch:
+    inputs:
+      dispatch:
+        type: string
+        description: "Dispatch contains pr context that want to trigger integration test"
+        required: true
+
+jobs:
+  integration-test:
+    uses: ./.github/workflows/reusable-integration-test-v1.yml
+    with:
+      extra_github_env: |
+        ${{ github.event.inputs.dispatch }}

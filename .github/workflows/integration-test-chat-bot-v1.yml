@@ -417,24 +417,20 @@ jobs:
                 extraGithubENV = `${extraGithubENV}\nWEB3_GIT_URL=${gitUrl}`
                 extraGithubENV = `${extraGithubENV}\nWEB3_GIT_CHECKOUT=${components.web3.commit}`
             }
+
+            // Escape new line
+            extraGithubENV = extraGithubENV
+              .replace(/\n/g, "\\n");
             core.info(`${extraGithubENV}`)
 
             return extraGithubENV;
 
   run-integration-test:
-    runs-on: ubuntu-latest
     needs: component-info
-    steps:
-      - name: set extra env
-        run: |
-          echo "EXTRA_GITHUB_ENV<<EOF" >> $GITHUB_ENV
-          echo ${{ needs.component-info.outputs.extra_github_env }} >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
-      - uses: nervosnetwork/godwoken-tests/.github/workflows/reusable-integration-test-v1.yml@simplify-workflow
-        id: run_test
-        with:
-          extra_github_env: |
-            ${{ env.EXTRA_GITHUB_ENV }}
+    uses: nervosnetwork/godwoken-tests/.github/workflows/reusable-integration-test-v1.yml@simplify-workflow
+    with:
+      extra_github_env: |
+        ${{ needs.component-info.outputs.extra_github_env }}
 
   run-result-feedback:
     needs: [component-info, run-integration-test]

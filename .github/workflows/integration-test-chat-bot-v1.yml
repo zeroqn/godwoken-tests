@@ -417,6 +417,10 @@ jobs:
                 extraGithubENV = `${extraGithubENV}\nWEB3_GIT_URL=${gitUrl}`
                 extraGithubENV = `${extraGithubENV}\nWEB3_GIT_CHECKOUT=${components.web3.commit}`
             }
+
+            // Escape new line
+            extraGithubENV = extraGithubENV
+              .replace(/\\n/g, "\\\\n");
             core.info(`${extraGithubENV}`)
 
             return extraGithubENV;
@@ -426,7 +430,7 @@ jobs:
     uses: nervosnetwork/godwoken-tests/.github/workflows/reusable-integration-test-v1.yml@simplify-workflow
     with:
       extra_github_env: |
-        ${{ format('{0}', needs.component-info.outputs.extra_github_env) }}
+        ${{ needs.component-info.outputs.extra_github_env }}
 
   run-result-feedback:
     needs: [component-info, run-integration-test]

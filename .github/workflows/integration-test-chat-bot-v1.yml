@@ -420,7 +420,7 @@ jobs:
 
             // Escape new line
             extraGithubENV = extraGithubENV
-              .replace(/\n/g, "\\\\n");
+              .replace(/\n/g, "%0A");
             core.info(`${extraGithubENV}`)
 
             return extraGithubENV;

@@ -408,7 +408,7 @@ jobs:
                 const gitUrl = componentGitUrl(components.polyjuice);
                 extraGithubENV = `${extraGithubENV}\nMANUAL_BUILD_POLYJUICE=true`
                 extraGithubENV = `${extraGithubENV}\nPOLYJUICE_GIT_URL=${gitUrl}`
-                extraGithubENV = `${extraGithubENV}\nPOLYJUICE_GIT_CHECKOUT=${components.scripts.commit}`
+                extraGithubENV = `${extraGithubENV}\nPOLYJUICE_GIT_CHECKOUT=${components.polyjuice.commit}`
             }
             if (components.web3.commit) {
                 const gitUrl = componentGitUrl(components.web3);

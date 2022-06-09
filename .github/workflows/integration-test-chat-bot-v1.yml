@@ -389,45 +389,45 @@ jobs:
             if (components.kicker.commit) {
                 extraGithubENV = `
                   ${extraGithubENV}
-                  GODWOKEN_KICKER_REF=${components.kicker.commit}`
+                  GODWOKEN_KICKER_REF=${components.kicker.commit}`;
             }
             if (components.tests.commit) {
                 extraGithubENV = `
                   ${extraGithubENV}
-                  GODWOKEN_TESTS_REF=${components.tests.commit}`
+                  GODWOKEN_TESTS_REF=${components.tests.commit}`;
             }
             if (components.godwoken.commit) {
                 const gitUrl = componentGitUrl(components.godwoken);
                 extraGithubENV = `
                   ${extraGithubENV}
-                  MANUAL_BUILD_GODWOKEN=true`
-                  GODWOKEN_GIT_URL=${gitUrl}`
-                  GODWOKEN_GIT_CHECKOUT=${components.godwoken.commit}`
+                  MANUAL_BUILD_GODWOKEN=true
+                  GODWOKEN_GIT_URL=${gitUrl}
+                  GODWOKEN_GIT_CHECKOUT=${components.godwoken.commit}`;
             }
             if (components.scripts.commit) {
                 const gitUrl = componentGitUrl(components.scripts);
                 extraGithubENV = `
                   ${extraGithubENV}
-                  MANUAL_BUILD_SCRIPTS=true`
-                  SCRIPTS_GIT_URL=${gitUrl}`
-                  SCRIPTS_GIT_CHECKOUT=${components.scripts.commit}`
+                  MANUAL_BUILD_SCRIPTS=true
+                  SCRIPTS_GIT_URL=${gitUrl}
+                  SCRIPTS_GIT_CHECKOUT=${components.scripts.commit}`;
             }
             if (components.polyjuice.commit) {
                 const gitUrl = componentGitUrl(components.polyjuice);
                 extraGithubENV = `
                   ${extraGithubENV}
-                  MANUAL_BUILD_POLYJUICE=true`
-                  POLYJUICE_GIT_URL=${gitUrl}`
-                  POLYJUICE_GIT_CHECKOUT=${components.polyjuice.commit}`
+                  MANUAL_BUILD_POLYJUICE=true
+                  POLYJUICE_GIT_URL=${gitUrl}
+                  POLYJUICE_GIT_CHECKOUT=${components.polyjuice.commit}`;
             }
             if (components.web3.commit) {
                 const gitUrl = componentGitUrl(components.web3);
                 extraGithubENV = `
                   ${extraGithubENV}
-                  MANUAL_BUILD_WEB3=true`
-                  MANUAL_BUILD_WEB3_INDEXER=true`
-                  WEB3_GIT_URL=${gitUrl}`
-                  WEB3_GIT_CHECKOUT=${components.web3.commit}`
+                  MANUAL_BUILD_WEB3=true
+                  MANUAL_BUILD_WEB3_INDEXER=true
+                  WEB3_GIT_URL=${gitUrl}
+                  WEB3_GIT_CHECKOUT=${components.web3.commit}`;
             }
             core.info(`${extraGithubENV}`)
 

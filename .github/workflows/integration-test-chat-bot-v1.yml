@@ -426,7 +426,7 @@ jobs:
     uses: nervosnetwork/godwoken-tests/.github/workflows/reusable-integration-test-v1.yml@simplify-workflow
     with:
       extra_github_env: |
-        ${{ needs.component-info.outputs.extra_github_env }}
+        ${{ format('{0}', needs.component-info.outputs.extra_github_env) }}
 
   run-result-feedback:
     needs: [component-info, run-integration-test]

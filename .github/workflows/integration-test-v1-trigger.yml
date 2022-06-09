@@ -6,7 +6,7 @@ on:
       dispatch:
         type: string
         description: "Dispatch contains pr context that want to trigger integration test"
-        required: true
+        required: false
 
 jobs:
   integration-test:

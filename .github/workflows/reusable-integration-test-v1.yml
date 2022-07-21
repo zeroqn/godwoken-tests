@@ -137,6 +137,11 @@ jobs:
       # FIXME: Sometimes, Godwoken service is not running
       # https://github.com/Flouse/godwoken/runs/3639382192?check_suite_focus=true#step:8:667
 
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
+      if: ${{ failure() }}
+      timeout-minutes: 15
+
     # - name: Enable offchain validator of Godwoken
     #   working-directory: kicker
     #   if: ${{ false }}
